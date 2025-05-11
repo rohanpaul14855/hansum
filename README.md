@@ -63,7 +63,7 @@ A Chrome extension that provides AI-powered summaries of Hacker News articles us
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-The project uses Readability.js which is licensed under the Apache License 2.0 - see the [Readability.js LICENSE](https://github.com/mozilla/readability/blob/main/LICENSE) for details.
+The project uses Readability.js which is licensed under the Apache License 2.0 - see the [Readability.js LICENSE](https://github.com/mozilla/readability/blob/main/LICENSE.md) for details.
 The project uses PDF.js which is licensed under the Apache License 2.0 - see the [PDF.js LICENSE](https://github.com/mozilla/pdf.js/blob/master/LICENSE) for details.
 
 ## Contributing
