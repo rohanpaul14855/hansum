@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "Hacker News Summarizer",
+  "version": "1.0",
+  "description": "Adds a \"summarize\" button to Hacker News articles and uses Gemini to generate summaries.",
+  "permissions": [
+    "scripting",
+    "tabs",
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://news.ycombinator.com/*",
+    "https://generativelanguage.googleapis.com/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://news.ycombinator.com/*"],
+      "js": ["content.js"]
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "readability/Readability-readerable.js",
+        "readability/Readability.js",
+        "pdfjs/pdf.min.js",
+        "pdfjs/pdf.worker.min.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "sandbox/reader.html",
+        "pdfjs/pdf.min.js",
+        "pdfjs/pdf.worker.min.js"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "sandbox": {
+    "pages": ["sandbox/reader.html"]
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
